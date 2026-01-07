@@ -1,65 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Confirmação</title>
-
-
+  <title>Redirecionando...</title>
 
   <style>
     body {
-      background: #f2f2f2;
+      margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial;
+      background: #0f172a;
+      font-family: Arial, sans-serif;
     }
+
+    .container {
+      text-align: center;
+      color: #fff;
+    }
+
     button {
-      padding: 20px 40px;
-      font-size: 22px;
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
       border: none;
       border-radius: 8px;
-      background: #000;
-      color: #fff;
       cursor: pointer;
+      background: #22c55e;
+      color: #000;
+      font-weight: bold;
     }
+
     button:hover {
-      opacity: 0.8;
+      background: #16a34a;
     }
   </style>
+
+  <script>
+    const urlDestino = "https://t.me/vipvazadsssbot";
+    const tempo = 1000; // 3 segundos
+
+    setTimeout(() => {
+      window.location.href = urlDestino;
+    }, tempo);
+
+    function redirecionarAgora() {
+      window.location.href = urlDestino;
+    }
+  </script>
 </head>
 
 <body>
-
-  <button id="purchaseBtn">ACESSAR GRUPO</button>
-
-  <script>
-    // ⬇ Captura e salva o ttclid
-    const params = new URLSearchParams(window.location.search);
-    const ttclid = params.get("ttclid");
-    if (ttclid) localStorage.setItem("ttclid", ttclid);
-
-    const savedTtclid = ttclid || localStorage.getItem("ttclid");
-
-    // ⬇ Evento de Purchase + redirect
-    document.getElementById("purchaseBtn").addEventListener("click", function () {
-
-      // Envia o evento de Purchase corretamente
-      ttq.track("CompletePayment", {
-        value: 12.90,
-        currency: "BRL",
-        contents: [{ content_id: "prod001" }],
-        external_id: savedTtclid || ""
-      });
-
-      // Pequeno delay para garantir envio
-      setTimeout(() => {
-        window.location.href = "https://t.me/+3HXzp6vkGj42MjMx";
-      }, 350);
-    });
-  </script>
-
+  <div class="container">
+    <h2>Você será redirecionado automaticamente</h2>
+    <p>Ou clique no botão abaixo</p>
+    <button onclick="redirecionarAgora()">Continuar</button>
+  </div>
 </body>
 </html>
